@@ -47,18 +47,18 @@ services:
     ports:
       - 8080:80
     environment:
-      WORDPRESS_DB_HOST: mysql
+      WORDPRESS_DB_HOST: wordpress_db
       WORDPRESS_DB_USER: wordpress
       WORDPRESS_DB_PASSWORD: wordpress
       WORDPRESS_DB_NAME: wordpress
     volumes:
       - ./wordpress:/var/www/html
     depends_on:
-      - mysql
+      - wordpress_db
     networks:
       - loki
 
-  mysql:
+  wordpress_db:
     image: mysql:8
     restart: always
     environment:

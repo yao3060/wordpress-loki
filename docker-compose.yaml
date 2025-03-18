@@ -45,6 +45,15 @@ services:
       - ./wordpress:/var/www/html
     depends_on:
       - wordpress_db
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: 2048M
+          pids: 100
+        reservations:
+          cpus: "2"
+          memory: 2048M
 
   wordpress_db:
     image: mysql:8

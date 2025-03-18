@@ -15,11 +15,11 @@ discovery.relabel "wordpress_scrape" {
 	// 只选择 WordPress 容器
   // 通过 source_labels 和 regex 来过滤 WordPress 容器
   // 使用 action = "keep" 来只保留匹配的容器日志
-	rule {
-		source_labels = ["__meta_docker_container_name"]
-		regex         = ".*wordpress.*"
-		action        = "keep"
-	}
+	// rule {
+	// 	source_labels = ["__meta_docker_container_name"]
+	// 	regex         = ".*wordpress.*"
+	// 	action        = "keep"
+	// }
 }
 
 loki.source.docker "wordpress_scrape" {
